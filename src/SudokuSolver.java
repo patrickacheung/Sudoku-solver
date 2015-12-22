@@ -12,8 +12,8 @@ class SudokuSolver {
     /* function for printing grid */
     private static void printSolution(int grid[][]){
         for(int i = 0; i < N; ++i){
-            for(int j = 0; j < N; ++j){
-                System.out.println(grid[i][j]);
+            for(int j = 0; j < N; ++j) {
+                System.out.print(grid[i][j] + " ");
             }
             System.out.println();
         }
