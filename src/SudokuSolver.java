@@ -7,7 +7,7 @@
  */
 class SudokuSolver {
     //sudoku grid size of NxN
-    private final int N = 9;
+    private final static int N = 9;
 
     /* function for printing grid */
     private static void printSolution(int grid[][]){
