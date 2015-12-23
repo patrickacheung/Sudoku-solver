@@ -9,6 +9,11 @@ class SudokuSolver {
     //sudoku grid size of NxN
     private final static int N = 9;
 
+    /* function for solving sudoku */
+    private static boolean solveSudoku(int grid[][]){
+        return true;
+    }// end solveSudoku
+
     /* function for printing grid */
     private static void printSolution(int grid[][]){
         for(int i = 0; i < N; ++i){
@@ -17,10 +22,10 @@ class SudokuSolver {
             }
             System.out.println();
         }
-    }
+    }// end printSolution
 
     public static void main(String[] args){
-        // 0 means empty cell
+        //0 means empty cell
         int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
                         {5, 2, 0, 0, 0, 0, 0, 0, 0},
                         {0, 8, 7, 0, 0, 0, 0, 3, 1},
@@ -31,8 +36,9 @@ class SudokuSolver {
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
-        //need to solve it
-        //then if solved, print the grid
-        printSolution(grid);
+        if(solveSudoku(grid) == true)
+            printSolution(grid);
+        else
+            System.out.println("No Solution Exists.");
     }// end main
 }// end SudokuSolver
