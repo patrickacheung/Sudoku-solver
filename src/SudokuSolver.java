@@ -9,9 +9,20 @@ class SudokuSolver {
     //sudoku grid size of NxN
     private final static int N = 9;
 
-    /* function for solving sudoku */
+    //0 means empty cell
+    private final static int E = 0;
+
+    /**
+     * Attempts to solve sudoku grid by finding an empty cell, tries a digit from 1-9 that is valid and attempts to
+     * complete the rest of the grid recursively. Reverts changes if that digit is invalid and continuously cycles
+     * through the digits until 1-9 fails for that cell.
+     * @param grid - the array to be solved
+     * @return true if puzzle is solvable and false if it is not
+     */
     private static boolean solveSudoku(int grid[][]){
-        return true;
+        boolean solvable = true;
+
+        return solvable;
     }// end solveSudoku
 
     /* function for printing grid */
