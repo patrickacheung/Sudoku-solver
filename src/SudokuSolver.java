@@ -12,6 +12,28 @@ class SudokuSolver {
     //0 means empty cell
     private final static int E = 0;
 
+    //row and col starting points
+    private static int row;
+    private static int col;
+
+    /**
+     * Searches the grid for an empty cell and updates the static row and col variables and true is returned.
+     * If no empty cell exits, false is returned.
+     * @param grid - sudoku grid to be evaluated
+     * @param row - row index in 2D array
+     * @param col - col index in 2D array
+     * @return true if an empty cell is found and false if there are no empty cells
+     */
+    private static boolean findEmptyCell(int grid[][], int row, int col){
+        for(row = 0; row < N; ++row){
+            for(col = 0; col < N; ++col){
+                if(grid[row][col] == E)
+                    return true;
+            }
+        }
+        return false;
+    }// end findEmptyCell
+
     /**
      * Attempts to solve sudoku grid by finding an empty cell, tries a digit from 1-9 that is valid and attempts to
      * complete the rest of the grid recursively. Reverts changes if that digit is invalid and continuously cycles
@@ -20,9 +42,13 @@ class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     private static boolean solveSudoku(int grid[][]){
-        boolean solvable = true;
+        //no empty cells mean the puzzle is already solved
+        if(!findEmptyCell(grid, row, col))
+            return true; //solved
 
-        return solvable;
+        //for
+
+        return false; //triggers backtracking
     }// end solveSudoku
 
     /* function for printing grid */
@@ -47,7 +73,7 @@ class SudokuSolver {
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
-        if(solveSudoku(grid) == true)
+        if(solveSudoku(grid))
             printSolution(grid);
         else
             System.out.println("No Solution Exists.");
