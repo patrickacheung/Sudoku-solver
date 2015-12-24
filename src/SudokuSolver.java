@@ -38,15 +38,13 @@ class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     private static boolean solveSudoku(int grid[][]){
-        //initialize row and column objects
-        Row row = new Row();
-        Col col = new Col();
-
         //no empty cells mean the puzzle is already solved
-        if(!findEmptyCell(grid, row, col))
+        if(!findEmptyCell(grid, new Row(), new Col()))
             return true; //solved
 
-        //for
+        for(){
+
+        }
 
         return false; //triggers backtracking
     }// end solveSudoku
