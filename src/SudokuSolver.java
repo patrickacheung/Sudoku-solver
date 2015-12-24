@@ -20,7 +20,7 @@ class SudokuSolver {
      * @param col - col index in 2D array
      * @return true if an empty cell is found and false if there are no empty cells
      */
-    private static boolean findEmptyCell(int grid[][], Row row, Col col){
+    private static boolean findEmptyCell(int[][] grid, Row row, Col col){
         //noinspection ConstantConditions
         for(row.rowIndex = 0; row.rowIndex < N; ++row.rowIndex)
             //noinspection ConstantConditions
@@ -37,7 +37,10 @@ class SudokuSolver {
      * @param grid - the array to be solved
      * @return true if puzzle is solvable and false if it is not
      */
-    private static boolean solveSudoku(int grid[][]){
+    private static boolean solveSudoku(int[][] grid){
+        //clone the grid?
+        int[][] temp = grid.clone();
+
         //no empty cells mean the puzzle is already solved
         if(!findEmptyCell(grid, new Row(), new Col()))
             return true; //solved
@@ -50,7 +53,7 @@ class SudokuSolver {
     }// end solveSudoku
 
     /* function for printing grid */
-    private static void printSolution(int grid[][]){
+    private static void printSolution(int[][] grid){
         for(int i = 0; i < N; ++i){
             for(int j = 0; j < N; ++j) {
                 System.out.print(grid[i][j] + " ");
@@ -61,7 +64,7 @@ class SudokuSolver {
 
     public static void main(String[] args){
         //0 means empty cell
-        int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
+        int[][] grid = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
                         {5, 2, 0, 0, 0, 0, 0, 0, 0},
                         {0, 8, 7, 0, 0, 0, 0, 3, 1},
                         {0, 0, 3, 0, 1, 0, 0, 8, 0},
