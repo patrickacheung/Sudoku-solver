@@ -21,12 +21,12 @@ class SudokuSolver {
      * @return true if an empty cell is found and false if there are no empty cells
      */
     private static boolean findEmptyCell(int grid[][], Row row, Col col){
-        for(row.rowIndex = 0; row.rowIndex < N; ++row.rowIndex){
-            for(col.colIndex = 0; col.colIndex < N; ++col.colIndex){
-                if(grid[row.rowIndex][col.colIndex] == E)
+        //noinspection ConstantConditions
+        for(row.rowIndex = 0; row.rowIndex < N; ++row.rowIndex)
+            //noinspection ConstantConditions
+            for (col.colIndex = 0; col.colIndex < N; ++col.colIndex)
+                if (grid[row.rowIndex][col.colIndex] == E)
                     return true;
-            }
-        }
         return false;
     }// end findEmptyCell
 
