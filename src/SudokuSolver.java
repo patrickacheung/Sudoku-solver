@@ -12,10 +12,6 @@ class SudokuSolver {
     //0 means empty cell
     private final static int E = 0;
 
-    //row and col starting points
-    private static int row;
-    private static int col;
-
     /**
      * Searches the grid for an empty cell and updates the static row and col variables and true is returned.
      * If no empty cell exits, false is returned.
@@ -24,10 +20,10 @@ class SudokuSolver {
      * @param col - col index in 2D array
      * @return true if an empty cell is found and false if there are no empty cells
      */
-    private static boolean findEmptyCell(int grid[][], int row, int col){
-        for(row = 0; row < N; ++row){
-            for(col = 0; col < N; ++col){
-                if(grid[row][col] == E)
+    private static boolean findEmptyCell(int grid[][], Row row, Col col){
+        for(row.rowIndex = 0; row.rowIndex < N; ++row.rowIndex){
+            for(col.colIndex = 0; col.colIndex < N; ++col.colIndex){
+                if(grid[row.rowIndex][col.colIndex] == E)
                     return true;
             }
         }
@@ -42,6 +38,10 @@ class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     private static boolean solveSudoku(int grid[][]){
+        //initialize row and column objects
+        Row row = new Row();
+        Col col = new Col();
+
         //no empty cells mean the puzzle is already solved
         if(!findEmptyCell(grid, row, col))
             return true; //solved
@@ -79,3 +79,17 @@ class SudokuSolver {
             System.out.println("No Solution Exists.");
     }// end main
 }// end SudokuSolver
+
+/**
+ * Row of sudoku grid for the sake of encapsulation
+ */
+class Row {
+    public int rowIndex;
+}// end Row
+
+/**
+ * Col of sudoku grid for the sake of encapsulation
+ */
+class Col {
+    public int colIndex;
+}// end Col
