@@ -13,9 +13,20 @@ class SudokuSolver {
     private final static int E = 0;
 
     /**
+     * Checks if number inserted appears twice in the same column
+     * @param grid - sudoku array to be evaluated
+     * @param num - number to be inserted and evaluated
+     * @param col - col where number will be inserted
+     * @return true if number doesn't appear twice in the same column and false if it does
+     */
+    private static boolean checkCol(int[][] grid, int num, int col){
+        return true;
+    }
+
+    /**
      * Checks if number inserted appears twice in the same row
      * @param grid - sudoku array to be evaluated
-     * @param num - number to be inserted
+     * @param num - number to be inserted and evaluated
      * @param row - row where number will be inserted
      * @return true if number doesn't appear twice in the same row and false if it does
      */
@@ -33,7 +44,7 @@ class SudokuSolver {
      * @return true if number does not appear twice in same row, column, and subgrid and false if it appears twice
      */
     private static boolean isValid(int[][] grid, int num, int row, int col){
-        return checkRow(grid, num, row) && checkCol() && checkSubgrid();
+        return checkRow(grid, num, row) && checkCol(grid, num, col) && checkSubgrid();
     }
 
     /**
