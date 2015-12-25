@@ -22,9 +22,7 @@ class SudokuSolver {
      * @return true if number does not appear twice in same row, column, and subgrid and false if it appears twice
      */
     private static boolean isValid(int[][] grid, int num, int row, int col){
-        if(checkRow() && checkCol() && checkSubgrid())
-            return true;
-        return false;
+        return checkRow() && checkCol() && checkSubgrid();
     }
 
     /**
