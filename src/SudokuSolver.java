@@ -13,12 +13,12 @@ class SudokuSolver {
     private final static int E = 0;
 
     /**
-     *
-     * @param grid
-     * @param num
-     * @param row
-     * @param col
-     * @return
+     * Checks if number inserted appears twice in its 3x3 subgrid
+     * @param grid - sudoku array to be evaluated
+     * @param num - number to be inserted and evaluated
+     * @param row - row where number will be inserted
+     * @param col - col where number will be iserted
+     * @return true if number doesn't appear twice in its 3x3 subgrid and false if it does
      */
     private static boolean checkSubgrid(int[][] grid, int num, int row, int col){
         return true;
