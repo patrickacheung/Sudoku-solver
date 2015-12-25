@@ -13,6 +13,21 @@ class SudokuSolver {
     private final static int E = 0;
 
     /**
+     * Checks if number inserted does not appear twice in the same row, column, and subgrid according to standard
+     * sudoku rules.
+     * @param grid - sudoku array
+     * @param num - number to be inserted
+     * @param row - row where number will be inserted
+     * @param col - column where number will be inserted
+     * @return true if number does not appear twice in same row, column, and subgrid and false if it appears twice
+     */
+    private static boolean isValid(int[][] grid, int num, int row, int col){
+        if(checkRow() && checkCol() && checkSubgrid())
+            return true;
+        return false;
+    }
+
+    /**
      * Searches the grid for an empty cell and updates the static row and col variables and true is returned.
      * If no empty cell exits, false is returned.
      * @param grid - sudoku grid to be evaluated
@@ -38,16 +53,16 @@ class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     private static boolean solveSudoku(int[][] grid){
-        //clone the grid?
+        //clone the grid, do recursive work on the clone
         int[][] temp = grid.clone();
 
         //no empty cells mean the puzzle is already solved
-        if(!findEmptyCell(grid, new Row(), new Col()))
+        if(!findEmptyCell(temp, new Row(), new Col()))
             return true; //solved
 
-        for(){
+        /*for(){
 
-        }
+        }*/
 
         return false; //triggers backtracking
     }// end solveSudoku
