@@ -31,7 +31,7 @@ class SudokuSolver {
      * @param col - col where number will be inserted
      * @return true if number doesn't appear twice in the same column and false if it does
      */
-    private static boolean checkCol(int[][] grid, int num, int row, int col){
+    private static boolean checkCol(int[][] grid, int num, int col){
         return true;
     }
 
@@ -42,7 +42,7 @@ class SudokuSolver {
      * @param row - row where number will be inserted
      * @return true if number doesn't appear twice in the same row and false if it does
      */
-    private static boolean checkRow(int[][] grid, int num, int row, int col){
+    private static boolean checkRow(int[][] grid, int num, int row){
         return true;
     }
 
@@ -56,7 +56,7 @@ class SudokuSolver {
      * @return true if number does not appear twice in same row, column, and subgrid and false if it appears twice
      */
     private static boolean isValid(int[][] grid, int num, int row, int col){
-        return checkRow(grid, num, row, col) && checkCol(grid, num, row,col) && checkSubgrid(grid, num, row, col);
+        return checkRow(grid, num, row) && checkCol(grid, num, col) && checkSubgrid(grid, num, row, col);
     }
 
     /**
