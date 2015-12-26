@@ -43,6 +43,9 @@ class SudokuSolver {
      * @return true if number doesn't appear twice in the same row and false if it does
      */
     private static boolean checkRow(int[][] grid, int num, int row){
+        for(int i = 0; i < N; ++i)
+            if (grid[row][i] == num)
+                return false;
         return true;
     }
 
