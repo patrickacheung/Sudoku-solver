@@ -101,18 +101,27 @@ class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     private static boolean solveSudoku(int[][] grid){
-        //clone the grid, do recursive work on the clone
-        int[][] temp = grid.clone();
+        Row r = new Row();
+        Col c = new Col();
 
         //no empty cells mean the puzzle is already solved
-        if(!findEmptyCell(temp, new Row(), new Col()))
+        if(!findEmptyCell(grid,r, c))
             return true; //solved
 
-        /*for(){
+        //cycle through possible digits
+        for(int tryNum = 1; tryNum <= N; ++tryNum){
+            if(isValid(grid, tryNum, r.rowIndex, c.colIndex)){
+                grid[r.rowIndex][c.colIndex] = tryNum;
 
-        }*/
+                //if current tryNum works, try to recursively fill the rest
+                if(solveSudoku(grid))
+                    return true;
 
-        return false; //triggers backtracking
+                //if it fails, rollback and set all previous filled to empty
+                grid[r.rowIndex][c.colIndex] = E;
+            }
+        }
+        return false; //triggers backtracking (try next possible digit that would be valid)
     }// end solveSudoku
 
     /* function for printing grid */
