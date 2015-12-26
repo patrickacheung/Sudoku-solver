@@ -21,6 +21,14 @@ class SudokuSolver {
      * @return true if number doesn't appear twice in its 3x3 subgrid and false if it does
      */
     private static boolean checkSubgrid(int[][] grid, int num, int row, int col){
+        //mod 3 to determine the (0,0) coordinate of the subgrid and add 3 to both row and col
+        //to find the limit of the subgrid
+        int xCoor = row - (row%3);
+        int yCoor = col - (col%3);
+        for(int i = xCoor; i < (xCoor + 3); ++i)
+            for(int j = yCoor; j < (yCoor + 3); ++j)
+                if(grid[i][j] == num)
+                    return false;
         return true;
     }
 
