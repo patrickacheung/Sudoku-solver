@@ -25,8 +25,10 @@ class SudokuSolver {
         //to find the limit of the subgrid
         int xCoor = row - (row%3);
         int yCoor = col - (col%3);
-        for(int i = xCoor; i < (xCoor + 2); ++i)
-            for(int j = yCoor; j < (yCoor + 2); ++j)
+        int range = 2;
+
+        for(int i = xCoor; i < (xCoor + range); ++i)
+            for(int j = yCoor; j < (yCoor + range); ++j)
                 if(grid[i][j] == num)
                     return false;
         return true;
