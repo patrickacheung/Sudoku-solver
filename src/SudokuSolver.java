@@ -32,7 +32,7 @@ class SudokuSolver {
                 if(grid[i][j] == num)
                     return false;
         return true;
-    }
+    }// end checkSubgrid
 
     /**
      * Checks if number inserted appears twice in the same column
@@ -46,7 +46,7 @@ class SudokuSolver {
             if(grid[i][col] == num)
                 return false;
         return true;
-    }
+    }// end checkCol
 
     /**
      * Checks if number inserted appears twice in the same row
@@ -60,7 +60,7 @@ class SudokuSolver {
             if (grid[row][i] == num)
                 return false;
         return true;
-    }
+    }// end checkRow
 
     /**
      * Checks if number inserted does not appear twice in the same row, column, and subgrid according to standard
@@ -73,7 +73,7 @@ class SudokuSolver {
      */
     private static boolean isValid(int[][] grid, int num, int row, int col){
         return checkRow(grid, num, row) && checkCol(grid, num, col) && checkSubgrid(grid, num, row, col);
-    }
+    }// end isValid
 
     /**
      * Searches the grid for an empty cell and updates the static row and col variables and true is returned.
