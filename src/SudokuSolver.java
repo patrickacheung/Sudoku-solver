@@ -32,6 +32,9 @@ class SudokuSolver {
      * @return true if number doesn't appear twice in the same column and false if it does
      */
     private static boolean checkCol(int[][] grid, int num, int col){
+        for(int i = 0; i < N; ++i)
+            if(grid[i][col] == num)
+                return false;
         return true;
     }
 
