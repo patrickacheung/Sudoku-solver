@@ -2,7 +2,7 @@
  * A simple command line sudoku solver using recursive backtracking
  *
  * @author Patrick Cheung
- * @version 1.2
+ * @version 1.3
  * Created by patch on 2015-12-20.
  */
 class SudokuSolver {
@@ -128,7 +128,7 @@ class SudokuSolver {
      * @return true if there are exactly the same number of each digit and false if there are different
      *          numbers of each digit
      */
-    private static boolean verify(int[][] grid){
+    /**private static boolean verify(int[][] grid){
         int count = 9;
         int[] countDigits = new int[9];
 
@@ -142,7 +142,7 @@ class SudokuSolver {
             if(i != count)
                 return false;
         return true;
-    }// end verify
+    }// end verify*/
 
     /* function for printing grid */
     private static void printSolution(int[][] grid){
@@ -176,7 +176,7 @@ class SudokuSolver {
                         {0, 0, 8, 5, 0, 0, 0, 1, 0},
                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};
 
-        if(solveSudoku(grid) && verify(grid))
+        if(solveSudoku(grid))// && verify(grid))
             printSolution(grid);
         else
             System.out.println("No Solution Exists.");
