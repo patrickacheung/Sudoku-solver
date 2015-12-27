@@ -2,7 +2,7 @@
  * A simple command line sudoku solver using recursive backtracking
  *
  * @author Patrick Cheung
- * @version 1.0
+ * @version 1.1
  * Created by patch on 2015-12-20.
  */
 class SudokuSolver {
