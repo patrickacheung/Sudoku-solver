@@ -122,28 +122,6 @@ class SudokuSolver {
         return false; //triggers backtracking (try next possible digit that would be valid)
     }// end solveSudoku
 
-    /**
-     * Verifies that there are no misinputs by checking there are exactly the same number of each digit
-     * @param grid - sudoku puzzle to be evaluated
-     * @return true if there are exactly the same number of each digit and false if there are different
-     *          numbers of each digit
-     */
-    /**private static boolean verify(int[][] grid){
-        int count = 9;
-        int[] countDigits = new int[9];
-
-        //count number each digit appears in sudoku puzzle
-        for(int i = 0; i < N; ++i)
-            for(int j = 0; j < N; ++j)
-                countDigits[grid[i][j] - 1] += 1;
-
-        //check if each digit appears exactly nine times
-        for(int i : countDigits)
-            if(i != count)
-                return false;
-        return true;
-    }// end verify*/
-
     /* function for printing grid */
     private static void printSolution(int[][] grid){
         for(int i = 0; i < N; ++i){
@@ -176,7 +154,7 @@ class SudokuSolver {
                         {0, 0, 8, 5, 0, 0, 0, 1, 0},
                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};
 
-        if(solveSudoku(grid))// && verify(grid))
+        if(solveSudoku(grid))
             printSolution(grid);
         else
             System.out.println("No Solution Exists.");
