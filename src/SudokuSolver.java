@@ -21,15 +21,13 @@ class SudokuSolver {
      * @return true if number doesn't appear twice in its 3x3 subgrid and false if it does
      */
     private static boolean checkSubgrid(int[][] grid, int num, int row, int col){
-        //mod 3 to determine the (0,0) coordinate of the subgrid and add 3 to both row and col
-        //to find the limit of the subgrid
-        int xCoor = row - (row%3);
-        int yCoor = col - (col%3);
-        int range = 2;
+        //mod 3 to determine the (0,0) coordinate of the subgrid
+        int xCoor = row - (row % 3);
+        int yCoor = col - (col % 3);
 
-        for(int i = xCoor; i < (xCoor + range); ++i)
-            for(int j = yCoor; j < (yCoor + range); ++j)
-                if(grid[i][j] == num)
+        for(int i = 0; i < 3; ++i)
+            for(int j = 0; j < 3; ++j)
+                if(grid[i + xCoor][j + yCoor] == num)
                     return false;
         return true;
     }// end checkSubgrid
@@ -158,7 +156,7 @@ class SudokuSolver {
 
     public static void main(String[] args){
         //0 means empty cell
-        int[][] grid = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
+        int[][] grid2 = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
                         {5, 2, 0, 0, 0, 0, 0, 0, 0},
                         {0, 8, 7, 0, 0, 0, 0, 3, 1},
                         {0, 0, 3, 0, 1, 0, 0, 8, 0},
@@ -167,6 +165,16 @@ class SudokuSolver {
                         {1, 3, 0, 0, 0, 0, 2, 5, 0},
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}};
+
+        int[][] grid = {{8, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 3, 6, 0, 0, 0, 0, 0},
+                        {0, 7, 0, 0, 9, 0, 2, 0, 0},
+                        {0, 5, 0, 0, 0, 7, 0, 0, 0},
+                        {0, 0, 0, 0, 4, 5, 7, 0, 0},
+                        {0, 0, 0, 1, 0, 0, 0, 3, 0},
+                        {0, 0, 1, 0, 0, 0, 0, 6, 8},
+                        {0, 0, 8, 5, 0, 0, 0, 1, 0},
+                        {0, 9, 0, 0, 0, 0, 4, 0, 0}};
 
         if(solveSudoku(grid) && verify(grid))
             printSolution(grid);
